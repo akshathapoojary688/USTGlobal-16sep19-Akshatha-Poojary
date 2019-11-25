@@ -1,0 +1,57 @@
+package com.ustglobal.phonesimulator;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.phonesimulator.dao.PhoneDao;
+import com.ustglobal.phonesimulator.dto.PhoneBean;
+import com.ustglobal.phonesimulator.util.PhoneFactory;
+
+public class Contacts {
+	public static void main(String[] args) {
+		System.out.println("Press 1 to show all contacts");
+		System.out.println("Press 2 to search for contact using name");
+		System.out.println("Press 3 to Operate on contact");
+		Scanner sc = new Scanner(System.in);
+		int option = sc.nextInt();
+		switch (option) {
+		case 1:
+			PhoneDao dao1 = PhoneFactory.getPhoneDao();
+			List<PhoneBean> contacts = dao1.showAllContacts();
+			int size = contacts.size();
+			if(size > 0)
+			{
+				for (PhoneBean phoneBean : contacts) {
+					System.out.println("Name   :"+phoneBean.getName());
+					System.out.println("Number :"+phoneBean.getGroup());
+					System.out.println("group  :"+phoneBean.getNumber());
+					System.out.println("**********************");
+				}
+				
+			}
+			else {
+				System.out.println("No contacts found");
+			}
+			
+
+			break;
+		case 2:
+			
+			System.out.println("Press 1 to call");
+			System.out.println("Press 2 to message");
+			System.out.println("Press 3 to go back to main");
+			Scanner sc1 = new Scanner(System.in);
+			int option1 = sc.nextInt();
+			if(option==1) {
+				
+			}
+			break;
+		case 3:
+
+			break;
+
+		default:
+			break;
+		}
+	}
+}

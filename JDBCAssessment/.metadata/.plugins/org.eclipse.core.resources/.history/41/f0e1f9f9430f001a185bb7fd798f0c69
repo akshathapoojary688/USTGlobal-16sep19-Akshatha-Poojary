@@ -1,0 +1,12 @@
+package com.ustglobal.phonesimulator.dao;
+
+import java.awt.List;
+
+import com.ustglobal.phonesimulator.dto.PhoneBean;
+
+public interface PhoneDao{
+	
+	public java.util.List<PhoneBean>showAllContacts();
+	
+
+}

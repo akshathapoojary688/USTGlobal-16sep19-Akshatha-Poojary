@@ -1,0 +1,101 @@
+package com.ustglobal.phonesimulator;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.phonesimulator.dao.PhoneDao;
+import com.ustglobal.phonesimulator.dto.PhoneBean;
+import com.ustglobal.phonesimulator.util.PhoneFactory;
+
+public class Contacts {
+	public static void main(String[] args) {
+		while(true) {
+			System.out.println("Press 1 to show all contacts");
+			System.out.println("Press 2 to search for contact using name");
+			System.out.println("Press 3 to Operate on contact");
+			Scanner sc = new Scanner(System.in);
+			int option = sc.nextInt();
+			switch (option) {
+			case 1:
+				PhoneDao dao1 = PhoneFactory.getPhoneDao();
+				List<PhoneBean> contacts = dao1.showAllContacts();
+				int size = contacts.size();
+				if(size > 0)
+				{
+					for (PhoneBean phoneBean : contacts) {
+						System.out.println("Name   :"+phoneBean.getName());
+						System.out.println("Number :"+phoneBean.getGroup());
+						System.out.println("group  :"+phoneBean.getNumber());
+						System.out.println("**********************");
+					}
+
+				}
+				else {
+					System.out.println("No contacts found");
+				}
+
+
+				break;
+			case 2:
+
+				System.out.println("Enter contact name");
+				String name = sc.next();
+
+
+				PhoneDao dao2 = PhoneFactory.getPhoneDao();
+				PhoneBean contact = dao2.searchContact(name);
+
+				System.out.println("Contact details");
+				System.out.println(contact.getName());
+				System.out.println(contact.getNumber());
+				System.out.println(contact.getGroup());
+				System.out.println("*****************");
+				while(true)
+				{
+					System.out.println("Press 1 to call");
+					System.out.println("Press 2 to message");
+					System.out.println("Press 3 to go back to main");
+					Scanner sc1 = new Scanner(System.in);
+					int option1 = sc.nextInt();
+					if(option1==1) {
+						System.out.println("Calling "+contact.getName());
+						System.out.println("Press 1 to exit");
+						Scanner sc2 = new Scanner(System.in);
+						int option2 = sc.nextInt();
+						if(option2==1) {
+							System.out.println(" Call ended Ending");
+
+						}
+					}
+					else
+						if(option1==2) {
+							System.out.println("Enter txt msg");
+							String msg = sc.next();
+							System.out.println("Messege sent :"+msg);
+
+						}
+						else if(option1==3) {
+							break;
+						}
+				}
+				break;
+			case 3:
+				while(true) {
+				System.out.println("Press 1 add contact");
+				System.out.println("Press 2 to delet contact");
+				System.out.println("Press 2 to edit contact");
+				System.out.println("Press 3 to go back to main");
+				Scanner sc2 = new Scanner(System.in);
+				int option1 = sc.nextInt();
+				if(option==1) {
+					
+				}
+				}
+			
+
+			default:
+				break;
+			}
+		}
+	}
+}

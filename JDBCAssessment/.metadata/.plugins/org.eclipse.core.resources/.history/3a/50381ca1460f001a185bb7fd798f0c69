@@ -1,0 +1,51 @@
+package com.ustglobal.phonesimulator.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+
+import com.ustglobal.phonesimulator.dto.PhoneBean;
+
+public class PhoneDaoImplementation implements PhoneDao{
+
+	private static final  String URL = "jdbc:mysql://localhost:3036/contactfile?user=root&password=1234";
+	private static final String Driver_NAME = "com.mysql.jdbc.Driver";
+	
+	/****************** Show all contact *******************/
+	@Override
+	public List<PhoneBean> showAllContacts() {
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	try {
+		Class.forName(Driver_NAME);
+	}
+		return null;
+	}
+/********************* Search Contact ***************/
+	@Override
+	public PhoneBean searchContact(PhoneBean bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int addContact(PhoneBean bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteContact(PhoneBean bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int editContact(PhoneBean bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

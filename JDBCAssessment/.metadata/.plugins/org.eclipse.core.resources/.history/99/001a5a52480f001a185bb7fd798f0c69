@@ -1,0 +1,43 @@
+package com.ustglobal.phonesimulator;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.phonesimulator.dao.PhoneDao;
+import com.ustglobal.phonesimulator.dto.PhoneBean;
+import com.ustglobal.phonesimulator.util.PhoneFactory;
+
+public class Contacts {
+	public static void main(String[] args) {
+		System.out.println("Press 1 to show all contacts");
+		System.out.println("Press 2 to search for contact using name");
+		System.out.println("Press 3 to Operate on contact");
+		Scanner sc = new Scanner(System.in);
+		int option = sc.nextInt();
+		switch (option) {
+		case 1:
+			PhoneDao dao1 = PhoneFactory.getPhoneDao();
+			List<PhoneBean> contacts = dao1.showAllContacts();
+			if(contacts == null)
+			{
+				System.out.println("Sorry No contacts found");
+			}
+			for (PhoneBean phoneBean : contacts) {
+				System.out.println(phoneBean.getName());
+				System.out.println(phoneBean.getGroup());
+				System.out.println(phoneBean.getNumber());
+			}
+
+			break;
+		case 2:
+
+			break;
+		case 3:
+
+			break;
+
+		default:
+			break;
+		}
+	}
+}

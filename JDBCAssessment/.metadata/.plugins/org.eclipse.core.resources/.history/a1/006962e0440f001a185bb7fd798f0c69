@@ -1,0 +1,8 @@
+package com.ustglobal.phonesimulator.util;
+
+public class PhoneFactory {
+	public PhoneFactory() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
