@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function addArray(a)
+     {
+         var sum=0;
+         var a = [1,2,3,4];
+         for( var i = 0;i<a.length;i++)
+        {
+          sum=sum+a[i];
+        }
+        console.log('sum = ',sum);
+         
+    }
+    addArray(4);  
+
+    //function expression
+
+    var res = function(a)
+     {
+         var sum=0;
+         var a = [1,2,3,4];
+         for( var i = 0;i<a.length;i++)
+        {
+          sum=sum+a[i];
+        }
+        console.log('sum is =', sum);
+    }
+    res(4);
+         
+    
+
+    //self invoked function
+
+    (
+      function(a)
+     {
+         var sum=0;
+         var a = [1,2,3,4];
+         for( var i = 0;i<a.length;i++)
+        {
+          sum=sum+a[i];
+        }
+        console.log('sum is =', sum);
+    }
+    )(4);
+
+    // fat arrow function
+
+    var res = (a) =>
+    {
+      var sum=0;
+         var a = [1,2,3,4];
+         for( var i = 0;i<a.length;i++)
+        {
+          sum=sum+a[i];
+        }
+        console.log('sum is =', sum);
+    }
+    res(4);
+
+
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //named function
+        function circle(radious)
+        {
+            var radious;
+           var res =  Math.PI*radious*2;
+            console.log(res);
+  
+        }
+        circle(2);
+
+        //function expression
+         var result = function(radious)
+        {
+            var radious;
+           var res =  Math.PI*radious*2;
+            console.log(res);
+  
+        }
+        circle(2);
+
+        //self invoking function
+         (function circle(radious)
+        {
+            var radious;
+           var res =  Math.PI*radious*2;
+            console.log(res);
+  
+        }
+         )
+         (2);
+
+         //fat arrow function
+         var circle = (radious) =>
+        {
+            var radious;
+           var res =  Math.PI*radious*2;
+            console.log(res);
+  
+        }
+        circle(2);
+
+    </script>
+          
+</body>
+</html>
