@@ -1,0 +1,22 @@
+<form action="" class="col-md-4 offset-4 mt-5 mb-5 card card-body" #form2="ngForm" (ngSubmit) = "candidate(form2)">
+    <div class="form-group">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Candidate Name" #name="ngModel" ngModel required><br>
+        <div *ngIf="name.touched && name.invalid">
+        <p *ngIf="name.errors.required" class="text-danger">*Please enter your name</p>
+        </div>
+        <input type="tel" name="number" id="number" class="form-control" placeholder="Years of Experience" #tel="ngModel" ngModel required><br>
+        <label for="skills">Skills</label><br>
+        <input type="radio" name="radio" id="radio"  >Java
+        <input type="radio" name="radio" id="radio" >Angular
+        <input type="radio" name="radio" id="radio" >SQL
+        <input type="text" name="cctc" id="cctc" class="form-control" placeholder="CCTC" ><br>
+        <input type="text" name="ectc" id="ectc" class="form-control" placeholder="ECTC" ><br>
+        <input type="text" name="locate" id="locate" class="form-control" placeholder="Ready to Relocate" #loc="ngModel" ngModel required><br>
+        <div *ngIf="loc.touched && loc.invalid">
+            <p *ngIf="loc.errors.required" class="text-danger">*This field is required</p>
+        </div>
+        <button type="submit" class="btn  btn-outline-primary  ">Schedule Interview</button>
+    </div>
+</form>
+
+

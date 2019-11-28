@@ -1,0 +1,34 @@
+<!-- property binding -->
+<h1 [innerText] = "name"></h1>
+<img [src] = "imgUrl" alt=" "[class.rounded-circle]="isActive">
+<!-- style binding -->
+<h1 [style.color] = "colorName" [class.bg-dark]="isActive" [class.bg-primary]= "!this.isActive" >{{address}}</h1>
+<table class = "table table-dark table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th [attr.colspan]="colSpanValue">Contact Number</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>akshatha</td>
+        <td>22</td>
+        <td>6354234152</td>
+        <td>7865435678</td>
+    </tr>
+    <tr>
+        <td>anjali</td>
+        <td>23</td>
+        <td>7645342545</td>
+        <td>9867569867</td>
+    </tr>
+    <tr>
+        <td>deepu</td>
+        <td>21</td>
+        <td>6578987656</td>
+        <td>9843567543</td>
+    </tr>
+</tbody>
+</table>

@@ -1,0 +1,9 @@
+<div class="col-md-4 mt-2 float-left card card-body">
+    <div class="card card-body" *ngFor="let laptop of Laptops">
+     <img src="{{laptop.imgUrl}}" alt="" (click)="sendLaptop(laptop)">
+     <h1>{{laptop.name}}</h1>
+    </div>
+</div>
+<!-- selector of child component -->
+<app-child3 [laptop] = "selectedLaptop"></app-child3>
+

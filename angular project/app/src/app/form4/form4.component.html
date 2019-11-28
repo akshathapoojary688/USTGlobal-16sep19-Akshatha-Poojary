@@ -1,0 +1,17 @@
+<form action="" class="col-md-4 offset-4 mt-5 mb-5 card card-body"#form4="ngForm" (ngSubmit) = "Product(form4)" >
+    <div class="form-group">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Product Name" #name="ngModel" ngModel required><br>
+        <div *ngIf="name.touched">
+        <p *ngIf="name.errors.required" class="text-danger">*this field is required</p>
+        </div>
+        <input type="tel" name="price" id="price" class="form-control" placeholder="Product Price" #tel="ngModel" ngModel required><br>
+        <div *ngIf="tel.touched">
+        <p *ngIf="tel.errors.required" class="text-danger">*this field is required</p>
+        </div>
+        <input type="text" name="description" id="description" class="form-control" placeholder="Product description" #text="ngModel" ngModel><br>
+        <input type="url" name="image" id="image" class="form-control" placeholder="Product Image Url" #url="ngModel" ngModel><br>
+        <button type="submit" class="btn btn-outline-dark">Add Product</button>
+
+    </div>
+
+</form>

@@ -1,0 +1,31 @@
+<form action="" class="col-md-4 offset-4 mt-5 mb-5 card card-body" #form3="ngForm" (ngSubmit)="User(form3)">
+    <div class="form-group">
+        <input type="text" name="name" id="name" class="form-control" placeholder="User Name" #name1="ngModel" ngModel required><br>
+        <div *ngIf="name1.touched && name1.invalid" >
+            <p *ngIf="name1.errors.required " class="text-danger">*Please enter your name</p>
+        </div>
+        <input type="text" name="page" id="page" class="form-control" placeholder="User Page" #text="ngModel" ngModel><br>
+        <label for="gender">Gender</label><br>
+        <input type="radio" name="gender" id="male">Male
+        <input type="radio" name="gender" id="female">Female
+        <input type="radio" name="gender" id="other">Other<br>
+        <input type="email" name="email" id="email" class="form-control" placeholder="User Email" #email="ngModel" ngModel required><br>
+        <div *ngIf="email.touched && email.invalid">
+            <p *ngIf="email.errors.required" class="text-danger" >*This field is required</p>
+        </div>
+ 
+        <input type="tel" name="phone" id="phone" class="form-control" placeholder="User Contact Number" #tel="ngModel" ngModel required minlength="10"><br>
+         <div *ngIf="tel.touched && tel.invalid">
+            <p *ngIf="tel.errors.required" class="text-danger">*This field is required</p>
+            <p *ngIf="tel.errors.minlength" class="text-danger">*enter atleast 10 numbers</p>
+         </div>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" #password1="ngModel" ngModel required minlength="5"><br>
+        <div *ngIf="password1.touched && password1.invalid">
+            <p *ngIf="password1.errors.required" class="text-danger" >*This field is required</p>
+            <p *ngIf="password1.errors.minlength" class="text-danger">*enter atleast 5 characters</p>
+
+        </div>
+        <button type="submit" class="btn btn-outline-info float-right" [disabled]="form3.invalid">Register</button>
+        </div>
+
+</form>
