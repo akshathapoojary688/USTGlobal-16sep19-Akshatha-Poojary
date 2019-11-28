@@ -1,0 +1,33 @@
+form{
+    grid: 1px solid black;
+    width:273px;
+    height: 300px;
+    margin-top: 200px;
+    margin-left: 500px;
+    margin-bottom: 350px;
+    margin-right: 240px;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 25px;
+    color:brown;
+    background-image: url(/image/halic-castle-1695717__340.jpg);
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    
+}
+body{
+    background-image: url(/image/is.jpg);
+    background-size: cover;
+}
+input[type="text"],input[type="password"]{
+    width:250px;
+    height:20px;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+input[type="submit"]{
+    margin-top: 20px;
+    padding:10px 35ps;
+}
