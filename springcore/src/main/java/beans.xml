@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     
+    <!-- delete old bean and type this -->
+    
+    <bean id = "hello" class ="com.ustglobal.springcore.di.Hello" init-method="init" destroy-method="destroy">
+    <property name = "msg" value="i love java"></property>
+    <property name = "map">
+    	<map>
+    		<entry key = "one" value = "1"></entry>
+    		<entry key = "two" value = "2"></entry>
+    	</map>
+    </property>
+    </bean> 
+    
+    <!-- <bean id = "dog" class = "com.ustglobal.springcore.di.Dog" primary="true"></bean>
+    <bean id = "human" class = "com.ustglobal.springcore.di.Human" ></bean>
+    <bean id ="animal" class = "com.ustglobal.springcore.di.Cat"></bean>
+    
+    <bean id ="pet" class ="com.ustglobal.springcore.di.Pet" autowire = "byType">
+    <bean id ="pet" class ="com.ustglobal.springcore.di.Pet " autowire = "constructor">
+    <bean id ="pet" class ="com.ustglobal.springcore.di.Pet" autowire = "byName">
+    	<property name = "name" value = "snoofy"></property> wirining through setter method
+    	<property name = "animal" ref = "dog"></property>  wirining through setter method
+    	 
+    	 <constructor-arg name = "name" value = "snoofy" ></constructor-arg> 
+    	 <constructor-arg name = "animal" value ="dog"></constructor-arg> wirining through constructor 
+    </bean>
+    
+    <bean id = "beanPostProcessor" class= "com.ustglobal.springcore.di.BeanPostProcessorClass"></bean>
+    <bean id = "beanFactoryPostProcessor" class = "com.ustglobal.springcore.di.BeanFactoryPostProcessorClass"></bean>
+     
+     
+     
+     byname will check for the name in id =animal then wire
+     if we want to give property for any object type then give ref this we called it as wiring 
+    	 for automattically wire use autotype
+    
+    if we are not giving true then program will not execute
+     bcs we are having two implementation of animal interface 
+      -->
+     
+     
+     </beans>  
+     
+     
+     
+     
+     
+     
