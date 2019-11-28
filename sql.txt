@@ -1,0 +1,1290 @@
+show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| firstdb            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.25 sec)
+
+mysql> use firstdb;
+Database changed
+mysql> show tables;
+Empty set (0.18 sec)
+
+mysql> create table product(pid int,pname varchar(120),quantity int);
+Query OK, 0 rows affected (2.27 sec)
+
+
+
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.27-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust3_db            |
+| ust_ty_db          |
++--------------------+
+6 rows in set (0.33 sec)
+
+mysql> use ust_ty_db;
+Database changed
+mysql> insert into employee_info values(6,"anu",45000);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee_info values(6,"anu",45000,'F');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> update employee_info set salary = 100000 where salary =20000;
+Query OK, 0 rows affected (0.42 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> desc employee_info;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| id     | int(11)      | NO   | PRI | NULL    |       |
+| name   | varchar(100) | YES  |     | NULL    |       |
+| salary | int(11)      | YES  |     | NULL    |       |
+| gender | char(1)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.08 sec)
+
+mysql> select * from employee_info;
++----+---------+--------+--------+
+| id | name    | salary | gender |
++----+---------+--------+--------+
+|  1 | deepu   | 100000 | M      |
+|  2 | preethu | 200000 | M      |
+|  3 | manu    | 400000 | M      |
+|  4 | poo     | 600000 | F      |
+|  5 | ashu    | 700000 | F      |
+|  6 | anu     |  45000 | F      |
++----+---------+--------+--------+
+6 rows in set (0.01 sec)
+
+mysql> delete from employee_info where id = 6;
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from employee_info;
++----+---------+--------+--------+
+| id | name    | salary | gender |
++----+---------+--------+--------+
+|  1 | deepu   | 100000 | M      |
+|  2 | preethu | 200000 | M      |
+|  3 | manu    | 400000 | M      |
+|  4 | poo     | 600000 | F      |
+|  5 | ashu    | 700000 | F      |
++----+---------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee_info;
++----+---------+--------+--------+
+| id | name    | salary | gender |
++----+---------+--------+--------+
+|  1 | deepu   | 100000 | M      |
+|  2 | preethu | 200000 | M      |
+|  3 | manu    | 400000 | M      |
+|  4 | poo     | 600000 | F      |
+|  5 | ashu    | 700000 | F      |
+|  7 | pranav  |  56000 | M      |
++----+---------+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee_info;
++----+--------+--------+--------+
+| id | name   | salary | gender |
++----+--------+--------+--------+
+|  1 | deepu  | 100000 | M      |
+|  2 | surya  | 800000 | M      |
+|  3 | manu   | 400000 | M      |
+|  4 | poo    | 600000 | F      |
+|  5 | ashu   | 700000 | F      |
+|  7 | pranav |  56000 | M      |
++----+--------+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employee_info;
++----+--------+--------+--------+
+| id | name   | salary | gender |
++----+--------+--------+--------+
+|  2 | surya  | 800000 | M      |
+|  3 | manu   | 400000 | M      |
+|  4 | poo    | 600000 | F      |
+|  5 | ashu   | 700000 | F      |
+|  7 | pranav |  56000 | M      |
++----+--------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> show tables;
++-------------------+
+| Tables_in_firstdb |
++-------------------+
+| product           |
++-------------------+
+1 row in set (0.01 sec)
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+
+
+
+3 rows in set (0.46 sec)
+
+mysql> drop database firstdb;
+Query OK, 1 row affected (0.84 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database ust_db;
+Query OK, 1 row affected (0.14 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust_db             |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use ust_db;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table product(pid int,pname varchar(120),quantity int);
+Query OK, 0 rows affected (1.07 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_ust_db |
++------------------+
+| product          |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> drop table product;
+Query OK, 0 rows affected (0.47 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create database ust_db;
+ERROR 1007 (HY000): Can't create database 'ust_db'; database exists
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table product;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table product(pid int,pname varchar(120),quantity int);
+Query OK, 0 rows affected (0.25 sec)
+
+mysql> alter table product add coloumn price int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'price int' at line 1
+mysql> drop database ust_db;
+Query OK, 1 row affected (0.20 sec)
+
+mysql> create database ust3_db;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use ust3_db;
+Database changed
+mysql> create table product(pid int, pname varchar(120),quantity int);
+Query OK, 0 rows affected (0.49 sec)
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table product add coloumn price int;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'price int' at line 1
+mysql> alter table product add column price int;
+Query OK, 0 rows affected (0.57 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
+| price    | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table product change column price cost int;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
+| cost     | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table product drop column cost;
+Query OK, 0 rows affected (0.76 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> rename table product to product_info;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_ust3_db |
++-------------------+
+| product_info      |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> rename database ust3_db to ust4_db;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database ust3_db to ust4_db' at line 1
+mysql> desc product_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| pid      | int(11)      | YES  |     | NULL    |       |
+| pname    | varchar(120) | YES  |     | NULL    |       |
+| quantity | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.08 sec)
+
+mysql> insert into product_info(pid,pname quantity)values(10,'mobile',3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'quantity)values(10,'mobile',3)' at line 1
+mysql> insert into product_info(pid,pname quantity) values(10,'mobile',10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'quantity) values(10,'mobile',10)' at line 1
+mysql>
+mysql>
+mysql>
+mysql> insert into product_info(pid,pname, quantity) values(10,'mobile',10);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|   10 | mobile |       10 |
++------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> insert into product_info values(101,'pen',5);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|   10 | mobile |       10 |
+|  101 | pen    |        5 |
++------+--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into product_info(pid,pname) values(103,'laptop');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|   10 | mobile |       10 |
+|  101 | pen    |        5 |
+|  103 | laptop |     NULL |
++------+--------+----------+
+3 rows in set (0.01 sec)
+
+mysql> insert into product_info(pid,pname, quantity) values(104,'bike',6),(105,'car',8);
+Query OK, 2 rows affected (0.06 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|   10 | mobile |       10 |
+|  101 | pen    |        5 |
+|  103 | laptop |     NULL |
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
++------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update product_info set quantity = 100;
+Query OK, 5 rows affected (0.17 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|   10 | mobile |      100 |
+|  101 | pen    |      100 |
+|  103 | laptop |      100 |
+|  104 | bike   |      100 |
+|  105 | car    |      100 |
++------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> delete from product_info;
+Query OK, 5 rows affected (0.75 sec)
+
+mysql> select * from product_info;
+Empty set (0.00 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_ust3_db |
++-------------------+
+| product_info      |
++-------------------+
+1 row in set (0.02 sec)
+
+mysql> insert into product_info(pid,pname, quantity) values(104,'bike',6),(105,'car',8),(106,'cycle',7),(107,'mobile',4),(109,'laptop',2);
+Query OK, 5 rows affected (0.11 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | laptop |        2 |
++------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select pname from product_info;
++--------+
+| pname  |
++--------+
+| bike   |
+| car    |
+| cycle  |
+| mobile |
+| laptop |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select pname,pid from product_info;
++--------+------+
+| pname  | pid  |
++--------+------+
+| bike   |  104 |
+| car    |  105 |
+| cycle  |  106 |
+| mobile |  107 |
+| laptop |  109 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> create table employee1;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table employee1(eid int,ename varchar(50) not null,mobile_no int unique,dob date not null,age int,blood_group varchar(60),deptno int,salary int,email varchar(120), gender varchar(100),primary key(pid));
+ERROR 1072 (42000): Key column 'pid' doesn't exist in table
+mysql> create table employee1(eid int,ename varchar(50) not null,mobile_no int unique,dob date not null,age int,blood_group varchar(60),deptno int,salary int,email varchar(120), gender varchar(100),primary key(eid));
+Query OK, 0 rows affected (0.53 sec)
+
+mysql> desc employee1;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| eid         | int(11)      | NO   | PRI | NULL    |       |
+| ename       | varchar(50)  | NO   |     | NULL    |       |
+| mobile_no   | int(11)      | YES  | UNI | NULL    |       |
+| dob         | date         | NO   |     | NULL    |       |
+| age         | int(11)      | YES  |     | NULL    |       |
+| blood_group | varchar(60)  | YES  |     | NULL    |       |
+| deptno      | int(11)      | YES  |     | NULL    |       |
+| salary      | int(11)      | YES  |     | NULL    |       |
+| email       | varchar(120) | YES  |     | NULL    |       |
+| gender      | varchar(100) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.01 sec)
+
+mysql> alter table employee1 add column designation varchar(70);
+Query OK, 0 rows affected (0.53 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee1;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| eid         | int(11)      | NO   | PRI | NULL    |       |
+| ename       | varchar(50)  | NO   |     | NULL    |       |
+| mobile_no   | int(11)      | YES  | UNI | NULL    |       |
+| dob         | date         | NO   |     | NULL    |       |
+| age         | int(11)      | YES  |     | NULL    |       |
+| blood_group | varchar(60)  | YES  |     | NULL    |       |
+| deptno      | int(11)      | YES  |     | NULL    |       |
+| salary      | int(11)      | YES  |     | NULL    |       |
+| email       | varchar(120) | YES  |     | NULL    |       |
+| gender      | varchar(100) | YES  |     | NULL    |       |
+| designation | varchar(70)  | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> alter table employee1 add column doj date;
+Query OK, 0 rows affected (0.64 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee1;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| eid         | int(11)      | NO   | PRI | NULL    |       |
+| ename       | varchar(50)  | NO   |     | NULL    |       |
+| mobile_no   | int(11)      | YES  | UNI | NULL    |       |
+| dob         | date         | NO   |     | NULL    |       |
+| age         | int(11)      | YES  |     | NULL    |       |
+| blood_group | varchar(60)  | YES  |     | NULL    |       |
+| deptno      | int(11)      | YES  |     | NULL    |       |
+| salary      | int(11)      | YES  |     | NULL    |       |
+| email       | varchar(120) | YES  |     | NULL    |       |
+| gender      | varchar(100) | YES  |     | NULL    |       |
+| designation | varchar(70)  | YES  |     | NULL    |       |
+| doj         | date         | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+12 rows in set (0.01 sec)
+
+
+write a query to display the record of empl whose salary >30000
+2) age is>30
+select *from employee1 where salary>30000;
++-----+-------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-------------+------------+
+| eid | ename | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation | doj        |
++-----+-------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-------------+------------+
+|  45 | arpha |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director    | 2026-09-27 |
+|  47 | poo   |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director    | 2016-05-22 |
+|  56 | manu  |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com    | F      | manager     | 2006-06-26 |
+|  62 | abhi  |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com    | F      | engg        | 2009-09-23 |
+|  87 | deepu |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer   | 2007-08-24 |
++-----+-------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee1 where age<30;
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com   | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  56 | manu     |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 |
++-----+----------+-----------+----
+
+display name salary email, mobile no whose age is >=18
+
+
+ select distinct designation from employee1;
++-----------------+
+| designation     |
++-----------------+
+| software engg   |
+| software testor |
+|  testor         |
+| director        |
+| manager         |
+| engg            |
+| developer       |
++-----------------+
+7 rows in set (0.00 sec)
+
+mysql> select distinct designation,eid from employee1;
++-----------------+-----+
+| designation     | eid |
++-----------------+-----+
+| software engg   |  10 |
+| software testor |  12 |
+|  testor         |  32 |
+| director        |  45 |
+| director        |  47 |
+| manager         |  56 |
+| engg            |  62 |
+| developer       |  87 |
++-----------------+-----+
+8 rows in set (0.00 sec)
+
+
+write to dislpay all the employee details who is working dept no 20 as well as salary is >25000;
+query to display name salary from emp table who is working in deptno 10 and 20
+write a query to dispay job detail as tester and age is 25
+display all the records workinnng as a testor or having salary more than 40000
+from employee1 where deptno = 20 AND salary>=25000;
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+| eid | ename | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation | doj        |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+|  45 | arpha |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director    | 2026-09-27 |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+1 row in set (0.05 sec)
+
+mysql> select * from employee1 where deptno = 20 AND salary>25000;
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+| eid | ename | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation | doj        |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+|  45 | arpha |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director    | 2026-09-27 |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select ename,salary from employee1 where deptno = 10 AND 20;
+Empty set (0.00 sec)
+
+mysql> select * from employee1;
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com      | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com    | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director        | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director        | 2016-05-22 |
+|  56 | manu     |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com    | F      | manager         | 2006-06-26 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com    | F      | engg            | 2009-09-23 |
+|  87 | deepu    |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer       | 2007-08-24 |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,salary from employee1 where deptno = 20 and deptno = 5;
+Empty set (0.00 sec)
+
+mysql> select * from employee1 where designation = software testor and age =25;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'testor and age =25' at line 1
+mysql> select * from employee1 where designation =' software testor 'and age =25;
+Empty set (0.00 sec)
+
+mysql> select * from employee1 where designation = 'software testor' or salary >40000;
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation     | doj        |
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com    | F      | software testor | 2016-09-23 |
+|  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director        | 2026-09-27 |
+|  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director        | 2016-05-22 |
+|  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com    | F      | manager         | 2006-06-26 |
+|  87 | deepu   |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer       | 2007-08-24 |
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+write a query to display name salary age from the employee table who is working in deptno 10 or 40 or 50
+select ename, salary,age,deptno from employee1 where deptno=20 or deptno=5 or deptno=67;
++---------+--------+------+--------+
+| ename   | salary | age  | deptno |
++---------+--------+------+--------+
+| arpitha |  20400 |   24 |      5 |
+| arpha   |  78400 |   58 |     20 |
+| manu    |  50400 |   25 |     67 |
++---------+--------+------+--------+
+3 rows in set (0.00 sec
+
+select ename, salary,age,deptno from employee1 where deptno=20 or deptno=5 or deptno=70;
++---------+--------+------+--------+
+| ename   | salary | age  | deptno |
++---------+--------+------+--------+
+| arpitha |  20400 |   24 |      5 |
+| arpha   |  78400 |   58 |     20 |
++---------+--------+------+--------+
+2 rows in set (0.01 sec)
+
+write a query to display emp details whose age is more than 25 and bloddgroup is b+
+
+ select * from employee1 where age>25 and blood_group ='B+';
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+| eid | ename | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation | doj        |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+|  62 | abhi  |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com | F      | engg        | 2009-09-23 |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+1 row in set (0.00 sec)
+
+display all the records of employee excluding testor
+
+to dispaly nam eof all employee who is working as hr or testor and salary >40000
+
+to display all the employee excluding software developer who are working in dept no 20
+
+write a query to display all the software developer who are working for deptno 10 40
+select * from employee1 where designation='software developer' and deptno=20 or deptno = 1;
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email        | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com | F      | software engg | 2013-09-03 |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+1 row in set (0.01 sec)
+
+to display all the deatils of empl who is working in deptno 5,20,28
+select * from employee1 where deptno in (5,20,28);
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |
+|  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+3 rows in set (0.03 sec)
+
+mysql>
+write a query to display name of all the emp who is working as a testor hr admin
+select ename from employee1 where designation in ('software engg','developer','manager');
++----------+
+| ename    |
++----------+
+| akshatha |
+| manu     |
+| deepu    |
++----------+
+
+dispay detatils of testor admin software developer who are working in deptno 20 or 5 and salary is >40000
+to dispaly all the records of empl excluding who is working as testor develor engg
+ select * from employee1 where designation not in('software developer','manager','software testor');
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com      | F      | software engg | 2013-09-03 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director      | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director      | 2016-05-22 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com    | F      | engg          | 2009-09-23 |
+|  87 | deepu    |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer     | 2007-08-24 |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+
+to display all the records of the employee whose age is 20,25,30,40 and exclude all the details of testor and software developer
+ select * from employee1 where age in(18,58,78,54) and designation not in('software developer','software testor');
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com      | F      | software engg | 2013-09-03 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director      | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director      | 2016-05-22 |
+|  87 | deepu    |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer     | 2007-08-24 |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+---------------+------------+
+
+to display all the details of the employee whose age is between 20 to 40;
+ select * from employee1 where age between 20 and 40;
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+
+to dispaly all the records o femployee who are joined during 2013 help of between operator
+select * from employee1 where doj between '2013-01-01' and '2013-12-31';
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email        | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com | F      | software engg | 2013-09-03 |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+
+query to display all the records of the employee excluding whose salary is in the range of 25000 and 35000
+select * from employee1 where salary not between 25000 and 35000;
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com      | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com    | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director        | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director        | 2016-05-22 |
+|  56 | manu     |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com    | F      | manager         | 2006-06-26 |
+|  87 | deepu    |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer       | 2007-08-24 |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+
+
+is: select * from table name where column name is null;
+like:  select * from table name where column name Like '%/_';
+
+
+display all the details of the emplo whose name starts with a;
+select * from employee1 where ename Like 'a%';
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com   | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+4 rows in set (0.00 sec)
+
+
+
+to display  name of the employee whose 2nd character is k;
+select * from employee1 where ename Like '_k%';
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email        | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com | F      | software engg | 2013-09-03 |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+1 row in set (0.00 sec)
+
+
+to display name of the employee which has  2 a in ther name
+mysql> select * from employee1 where ename Like '%a%a';
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com   | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+3 rows in set (0.00 sec)
+
+ strart witha 
+ select * from employee1 where ename Like 'a%';
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com   | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+
+
+display query to whose name start with a and ends with i
+ select * from employee1 where ename Like 'a%i';
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+| eid | ename | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation | doj        |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+|  62 | abhi  |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com | F      | engg        | 2009-09-23 |
++-----+-------+-----------+------------+------+-------------+--------+--------+----------------+--------+-------------+------------+
+1 row in set (0.00 sec)
+
+query to display all the records of empl if the empl name begins with a or p
+select * from employee1 where ename Like 'a%' or ename Like 'p%';
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com   | F      | software engg   | 2013-09-03 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+
+5 rows in set (0.01 sec)
+
+query to display employee name salary who is working in deptno 10,20,30 and anual salary, designamtion starts with s
+select ename,salary from employee1 where deptno in(1,5,20) and salary*12 and designation Like 's%';
++----------+--------+
+| ename    | salary |
++----------+--------+
+| akshatha |  20000 |
+| arpitha  |  20400 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+multi row function
+select sum(salary) from employee1;
++-------------+
+| sum(salary) |
++-------------+
+|      376900 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee1;
++-------------+
+| max(salary) |
++-------------+
+|       98400 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from employee1;
++-------------+
+| min(salary) |
++-------------+
+|       20000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee1;
++-------------+
+| avg(salary) |
++-------------+
+|  53842.8571 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from employee1;
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+
+
+order by :
+select column1,column2
+from table name
+order by column name asc|desc;
+
+query to display all the records of the employee and salary should be descending order
+select * from employee1 order by salary desc;
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation     | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     28 |  98400 | uyty@gmail.com    | F      | director        | 2016-05-22 |
+|  87 | deepu    |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer       | 2007-08-24 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director        | 2026-09-27 |
+|  56 | manu     |  82859529 | 1857-04-29 |   25 | A-          |     67 |  50400 | pavh@gmail.com    | F      | manager         | 2006-06-26 |
+|  62 | abhi     |  25859169 | 1357-04-15 |   44 | B+          |      9 |  30400 | hgth@gmail.com    | F      | engg            | 2009-09-23 |
+|  12 | arpitha  |  81859169 | 1957-03-15 |   24 | A+          |      5 |  20400 | aksh@gmail.com    | F      | software testor | 2016-09-23 |
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |      1 |  20000 | ak@gmail.com      | F      | software engg   | 2013-09-03 |
++-----+----------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+
+7 rows in set (0.00 sec)
+
+
+
+subquery:::single row subquery
+
+write a query to display all the employee details  whose doj equal to akshatha
+ select * from employee1 where doj =( select doj from employee1 where ename ='akshatha');
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email        | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com | F      | software engg | 2013-09-03 |
++-----+----------+-----------+------------+------+-------------+--------+--------+--------------+--------+---------------+------------+
+1 row in set (0.00 sec)
+
+wrie a query to display the second maximum salary
+select max(salary) from employee1 where salary<(select max(salary) from employee1);
++-------------+
+| max(salary) |
++-------------+
+|       78900 |
++-------------+
+
+
+multiorw subquery:
+
+write a query to display name of the employee who is working in a location which has atleas one a in the location
+ select ename from employee1 where deptno in(select deptno from department where location Like '%a%');
++----------+
+| ename    |
++----------+
+| akshatha |
+| arpha    |
+| poo      |
+
+2) write a query to display all the records of employee who is working in admin opearions, developement
+select * from employee1 where deptno in(select deptno from department where dname ='admin' or dname ='operations'or dname ='development');
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+---------------+------------+
+| eid | ename    | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation   | doj        |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+---------------+------------+
+|  10 | akshatha |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com   | F      | software engg | 2013-09-03 |
+|  45 | arpha    |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director      | 2026-09-27 |
+|  47 | poo      |  85859189 | 1765-03-15 |   78 | A+          |     40 |  98400 | uyty@gmail.com | F      | director      | 2016-05-22 |
++-----+----------+-----------+------------+------+-------------+--------+--------+----------------+--------+---------------+------------+
+3 rows in set (0.00 sec)
+
+
+group by:
+write a query to display the max salary for each department
+ select max(salary),deptno  from employee1 group by deptno;
++-------------+--------+
+| max(salary) | deptno |
++-------------+--------+
+|       30400 |      9 |
+|       20000 |     10 |
+|       78400 |     20 |
+|       20400 |     30 |
+|       98400 |     40 |
+|       50400 |     67 |
+|       78900 |     89 |
+
+
+query to dispay highest salary given to hr for  each department
+
+ select max(salary),deptno from employee1 where designation='hr' group by deptno;
++-------------+--------+
+| max(salary) | deptno |
++-------------+--------+
+|       20000 |     10 |
++-------------+--------+
+1 row in set (0.00 sec)
+
+
+query to dispaly dept no which has atleat two employee working 
+
+select deptno from employee1 group by deptno having count(*)>=2;
++--------+
+| deptno |
++--------+
+|     20 |
++--------+
+
+rollback:
+set autocommit =0;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into product_info values(111,'book',10);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | laptop |        2 |
+|  110 | table  |        5 |
+|  111 | book   |       10 |
++------+--------+----------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | laptop |        2 |
+|  110 | table  |        5 |
++------+--------+----------+
+6 rows in set (0.00 sec)
+
+
+
+commit:
+update product_info set pname ='sugar';
+Query OK, 6 rows affected (0.02 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | table  |        2 |
+|  110 | sugar  |        5 |
++------+--------+----------+
+6 rows in set (0.01 sec)
+
+savepoint::
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | table  |        2 |
+|  110 | sugar  |        5 |
++------+--------+----------+
+6 rows in set (0.01 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into product_info(111,'salt',9);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '111,'salt',9)' at line 1
+mysql> insert into product_info values(111,'salt',9);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update product_info set pname ='ginger' where pid = 105;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | ginger |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | table  |        2 |
+|  110 | sugar  |        5 |
+|  111 | salt   |        9 |
++------+--------+----------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from product_info;
++------+--------+----------+
+| pid  | pname  | quantity |
++------+--------+----------+
+|  104 | bike   |        6 |
+|  105 | car    |        8 |
+|  106 | cycle  |        7 |
+|  107 | mobile |        4 |
+|  109 | table  |        2 |
+|  110 | sugar  |        5 |
++------+--------+----------+
+6 rows in set (0.00 sec)
+
+
+
+update employee1 set deptno = 50 where ename ='abhi'
+select * from employee1
+
+select * from employee1 cross join department
+
+select * from employee1 e inner join department d on e.deptno = d.deptno
+
+select * from employee1 e left outer join department d on e.deptno = d.deptno
+
+select * from employee1 e right outer join department d on e.deptno = d.deptno
+select * from employee1 e left outer join department d on e.deptno =d.deptno;
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+--------+-------------+----------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email             | gender | designation     | doj        | deptno | dname       | location |
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+--------+-------------+----------+
+|  10 | prathvi |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com      | F      | hr              | 2013-09-03 |     10 | operations  | chennai  |
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |     30 |  20400 | aksh@gmail.com    | F      | software testor | 2016-09-23 |     30 | maintanance | pune     |
+|  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com    | F      | director        | 2026-09-27 |     20 | admin       | hydarbad |
+|  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     40 |  98400 | uyty@gmail.com    | F      | director        | 2016-05-22 |     40 | development | banglore |
+|  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     20 |  50400 | pavh@gmail.com    | F      | manager         | 2006-06-26 |     20 | admin       | hydarbad |
+|  62 | abhi    |  25859169 | 1357-04-15 |   44 | B+          |     50 |  30400 | hgth@gmail.com    | F      | engg            | 2009-09-23 |     50 | hr          | pune     |
+|  87 | deepu   |  81639169 | 1837-07-21 |   54 | A+          |     89 |  78900 | pallavi@gmail.com | F      | developer       | 2007-08-24 |   NULL | NULL        | NULL     |
++-----+---------+-----------+------------+------+-------------+--------+--------+-------------------+--------+-----------------+------------+--------+-------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee1 e right outer join department d on e.deptno =d.deptno;
++------+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+| eid  | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        | deptno | dname       | location |
++------+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+|   10 | prathvi |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com   | F      | hr              | 2013-09-03 |     10 | operations  | chennai  |
+|   12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |     30 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |     30 | maintanance | pune     |
+|   45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |     20 | admin       | hydarbad |
+|   47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     40 |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 |     40 | development | banglore |
+|   56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     20 |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 |     20 | admin       | hydarbad |
+|   62 | abhi    |  25859169 | 1357-04-15 |   44 | B+          |     50 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |     50 | hr          | pune     |
+| NULL | NULL    |      NULL | NULL       | NULL | NULL        |   NULL |   NULL | NULL           | NULL   | NULL            | NULL       |     60 | hr          | bombay   |
++------+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+7 rows in set (0.00 sec)
+
+select * from employee1 natural join department;
++--------+-----+---------+-----------+------------+------+-------------+--------+----------------+--------+-----------------+------------+-------------+----------+
+| deptno | eid | ename   | mobile_no | dob        | age  | blood_group | salary | email          | gender | designation     | doj        | dname       | location |
++--------+-----+---------+-----------+------------+------+-------------+--------+----------------+--------+-----------------+------------+-------------+----------+
+|     10 |  10 | prathvi |  65894587 | 1997-07-15 |   18 | A+          |  20000 | ak@gmail.com   | F      | hr              | 2013-09-03 | operations  | chennai  |
+|     30 |  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 | maintanance | pune     |
+|     20 |  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 | admin       | hydarbad |
+|     40 |  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 | development | banglore |
+|     20 |  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 | admin       | hydarbad |
+|     50 |  62 | abhi    |  25859169 | 1357-04-15 |   44 | B+          |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 | hr          | pune     |
++--------+-----+---------+-----------+------------+------+-------------+--------+----------------+--------+-----------------+------------+-------------+----------+
+6 rows in set (0.00 sec)
+
+
+ select * from employee1 e inner join department d on e.deptno =d.deptno;
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        | deptno | dname       | location |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+|  10 | prathvi |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com   | F      | hr              | 2013-09-03 |     10 | operations  | chennai  |
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |     30 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |     30 | maintanance | pune     |
+|  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |     20 | admin       | hydarbad |
+|  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     40 |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 |     40 | development | banglore |
+|  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     20 |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 |     20 | admin       | hydarbad |
+|  62 | abhi    |  25859169 | 1357-04-15 |   44 | B+          |     50 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |     50 | hr          | pune     |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+
+self joins
+select * from employee1 e join department d on e.deptno=d.deptno;
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+| eid | ename   | mobile_no | dob        | age  | blood_group | deptno | salary | email          | gender | designation     | doj        | deptno | dname       | location |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+|  10 | prathvi |  65894587 | 1997-07-15 |   18 | A+          |     10 |  20000 | ak@gmail.com   | F      | hr              | 2013-09-03 |     10 | operations  | chennai  |
+|  12 | arpitha |  81859169 | 1957-03-15 |   24 | A+          |     30 |  20400 | aksh@gmail.com | F      | software testor | 2016-09-23 |     30 | maintanance | pune     |
+|  45 | arpha   |  95859169 | 1767-03-15 |   58 | A+          |     20 |  78400 | hgty@gmail.com | F      | director        | 2026-09-27 |     20 | admin       | hydarbad |
+|  47 | poo     |  85859189 | 1765-03-15 |   78 | A+          |     40 |  98400 | uyty@gmail.com | F      | director        | 2016-05-22 |     40 | development | banglore |
+|  56 | manu    |  82859529 | 1857-04-29 |   25 | A-          |     20 |  50400 | pavh@gmail.com | F      | manager         | 2006-06-26 |     20 | admin       | hydarbad |
+|  62 | abhi    |  25859169 | 1357-04-15 |   44 | B+          |     50 |  30400 | hgth@gmail.com | F      | engg            | 2009-09-23 |     50 | hr          | pune     |
++-----+---------+-----------+------------+------+-------------+--------+--------+----------------+--------+-----------------+------------+--------+-------------+----------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
