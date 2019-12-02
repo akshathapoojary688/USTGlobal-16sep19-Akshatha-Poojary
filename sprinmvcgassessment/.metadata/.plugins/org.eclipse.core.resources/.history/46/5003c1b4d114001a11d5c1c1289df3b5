@@ -1,0 +1,5 @@
+package com.ustglobal.springproduct.controller;
+
+public class ProductController {
+
+}

@@ -1,0 +1,35 @@
+<%@page import="com.ustglobal.springproduct.beans.ProductBean"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%
+       ProductBean bean = (ProductBean)session.getAttribute("bean");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="./update">Update Profile</a>
+<a href="./delete">Delete Profile</a>
+
+<h2>Welcome <%=bean.getName() %></h2>
+<fieldset>
+	<legend>search product</legend>
+	<form action="./search">
+		<table>
+			<tr>
+				<td>ID:</td>
+				<td><input type ="number" name = "id"></td>
+				<td><input type ="submit" value = "Search"></td>
+			</tr>
+		</table>
+	</form>
+</fieldset>
+
+
+
+</body>
+</html>

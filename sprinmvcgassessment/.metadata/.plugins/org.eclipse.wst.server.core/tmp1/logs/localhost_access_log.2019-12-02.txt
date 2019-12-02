@@ -1,0 +1,17 @@
+127.0.0.1 - - [02/Dec/2019:21:34:42 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:35:37 +0530] "GET /springproduct/register HTTP/1.1" 200 712
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:35:37 +0530] "GET /springproduct/register HTTP/1.1" 200 712
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:35:39 +0530] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:45 +0530] "POST /springproduct/register HTTP/1.1" 200 655
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:58 +0530] "POST /springproduct/login HTTP/1.1" 200 594
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:37:02 +0530] "GET /springproduct/changepassword HTTP/1.1" 200 563
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:37:20 +0530] "POST /springproduct/changepassword HTTP/1.1" 200 615
+127.0.0.1 - - [02/Dec/2019:21:54:07 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:54:33 +0530] "GET /springproduct/register HTTP/1.1" 200 712
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:54:36 +0530] "GET /springproduct/register HTTP/1.1" 200 712
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:54:48 +0530] "GET /springproduct/login HTTP/1.1" 200 625
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:55:18 +0530] "POST /springproduct/register HTTP/1.1" 200 656
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:55:28 +0530] "POST /springproduct/login HTTP/1.1" 200 593
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:55:34 +0530] "GET /springproduct/search?id=6&Search=Submit HTTP/1.1" 200 593
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:55:42 +0530] "GET /springproduct/changepassword HTTP/1.1" 200 660
+0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:56:00 +0530] "POST /springproduct/changepassword HTTP/1.1" 200 609

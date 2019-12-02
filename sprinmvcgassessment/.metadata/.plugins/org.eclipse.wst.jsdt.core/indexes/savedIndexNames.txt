@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\springass\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2034388601.index
+4015061170.index
+2764169087.index
+1875734840.index
+626142556.index
+1948540422.index

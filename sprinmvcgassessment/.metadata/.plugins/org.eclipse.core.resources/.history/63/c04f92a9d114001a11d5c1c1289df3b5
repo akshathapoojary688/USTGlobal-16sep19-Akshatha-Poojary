@@ -1,0 +1,5 @@
+package com.ustglobal.springproduct.service;
+
+public class ProductServiceImpl {
+
+}

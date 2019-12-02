@@ -1,0 +1,68 @@
+package com.ustglobal.springproduct.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+
+import com.ustglobal.springproduct.beans.ProductBean;
+
+public class ProductDAOImpl implements ProductDAO{
+	private EntityManagerFactory factory ;
+	@Override
+	public int createprofile(ProductBean bean) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		try {
+			manager.persist(bean);
+			transaction.commit();
+			return bean.getId();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;  						
+		}
+	}
+	
+	@Override
+	
+	public ProductBean login(int id, String password) {
+		String jpql = "from EmployeeBean where id =:id and password = :password";
+		EntityManager manager = factory.createEntityManager();
+		TypedQuery<ProductBean> query = manager.createQuery(jpql,ProductBean.class);
+		query.setParameter("id", id);
+		query.setParameter("password",password);
+		try {
+			
+			ProductBean bean = query.getSingleResult();
+			return bean; 
+			}catch(Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		
+		
+	}
+
+	@Override
+	public ProductBean searchProduct(int id) {
+		EntityManager manager =factory.createEntityManager();
+		return manager.find(ProductBean.class, id);
+	}
+
+	@Override
+	public boolean updateProduct(ProductBean bean) {
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		ProductBean productBean = manager.find(ProductBean.class, bean.getId());
+		productBean.setId(bean.getId());
+		productBean.setName(bean.getName());
+		productBean.setEmail(bean.getEmail());
+		productBean.setPassword(bean.getPassword());
+		transaction.commit();
+		return true;
+	}
+	
+
+}

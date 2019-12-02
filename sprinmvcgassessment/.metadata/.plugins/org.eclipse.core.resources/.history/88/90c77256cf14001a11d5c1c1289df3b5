@@ -1,0 +1,5 @@
+package com.ustglobal.springproduct.dao;
+
+public class ProductDAOImpl {
+
+}
