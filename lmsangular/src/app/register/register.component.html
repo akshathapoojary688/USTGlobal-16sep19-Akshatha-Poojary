@@ -1,0 +1,31 @@
+
+<html>
+  <body>
+
+<form action="" class="col-md-4 offset-4 mt-5 card card-body float-right" #form="ngForm" (ngSubmit)="register(form)">
+    <h1 class="text-center bg-dark text-white float-right">Register</h1>
+    <div class="form-group">
+        <input type="text" name="username" id="username" class="form-control" placeholder="enter username...."     #username="ngModel" ngModel required >
+          <div *ngIf="username.touched && username.invalid">
+            <p class ="alert alert-danger" *ngIf="username.errors.required">This field is required</p>
+          </div>
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" id="password" class="form-control" placeholder="enter password..."  required minlength="8"  #password="ngModel" ngModel required>
+        <div *ngIf="password.touched && password.invalid">
+          <p class ="alert alert-danger" *ngIf="password.errors.required">This field is required</p>
+          <p class="alert alert-danger" *ngIf="password.hasError('minlength')">*minimum 8 character required</p>
+        </div>
+    </div>
+    <div class="form-group">
+      <input type="text" name="role" id="role" class="form-control" placeholder="enter role..." #role="ngModel" ngModel required>
+      <div *ngIf="role.touched && role.invalid">
+        <p class ="alert alert-danger" *ngIf="role.errors.required">This field is required</p>
+      </div>
+  </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Register</button>
+      </div>
+    </form>
+  </body>
+</html>

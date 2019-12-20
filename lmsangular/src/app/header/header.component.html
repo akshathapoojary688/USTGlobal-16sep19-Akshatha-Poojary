@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/home">LibrarySystem</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf="!isLibrarianLogin && !isStudentLogin">
+                <a class= "nav-link"  routerLink = "/login">Login <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" *ngIf="!isLibrarianLogin && !isStudentLogin">
+                <a class="nav-link"  routerLink= "/register">Register</a>
+            </li>
+            <li class="nav-item" *ngIf="isLibrarianLogin">
+                <a class="nav-link"routerLink= "/add-book">AddBook</a>
+            </li>
+            <li class="nav-item" *ngIf="isLibrarianLogin">
+                <a class="nav-link"routerLink= "/remove-book">DeleteBook</a>
+            </li>
+            <li class="nav-item"  *ngIf= "isStudentLogin">
+                <a class="nav-link"routerLink= "/search-book">SearchBook</a>
+            </li>
+            <li class="nav-item" *ngIf= "isStudentLogin" >
+                <a class="nav-link"routerLink= "/request-book">RequestedBook</a>
+            </li>
+            <li class="nav-item" *ngIf="isLibrarianLogin">
+                <a class="nav-link"routerLink= "/issue-book">BookIssued</a>
+            </li>
+            <li class="nav-item" *ngIf= "isLibrarianLogin && isStudentLogin">
+                <a class="nav-link"routerLink= "/viewAllBook">viewAllBooks</a>
+            </li>
+            
+            
+        
+        </ul>
+        
+    </div>
+</nav>

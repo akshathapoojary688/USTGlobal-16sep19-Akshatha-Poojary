@@ -1,0 +1,19 @@
+<html>
+    <body>
+
+    
+
+<form action="" class="col-md-3 offset-5 mt-8 card card-body  float-right" #form="ngForm" (ngSubmit)="delete(form)">
+    <h1 class="text-center bg-dark text-white">Remove-Book</h1>
+    <div class="form-group">
+        <input type="number" name="bid" id="bid" class="form-control" placeholder="enter book id...." #id="ngModel" ngModel required>
+    </div>
+    
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Delete-Book</button>
+        </div>
+        </form>
+    </body>
+</html>
+
