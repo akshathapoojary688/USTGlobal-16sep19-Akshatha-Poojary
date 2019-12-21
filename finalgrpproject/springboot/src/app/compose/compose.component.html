@@ -1,0 +1,15 @@
+<form [formGroup]="compose" (ngSubmit)="composeMail()">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">To :</label>
+    <input type="email" class="form-control" formControlName="email" name="email" id="exampleFormControlInput1" placeholder="Enter receipient's mail address">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Enter subject :</label>
+    <input type="text" formControlName="subject" name="subject" id="subject" placeholder="Enter email subject">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Enter message..</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-primary btn-large">Send</button>
+</form>
